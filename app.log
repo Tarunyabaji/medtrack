@@ -1,0 +1,83 @@
+2025-07-04 11:32:43,108 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.10.21.176:5000
+2025-07-04 11:32:43,109 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-04 11:33:12,214 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:33:12] "GET / HTTP/1.1" 200 -
+2025-07-04 11:33:13,040 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:33:13] "GET /static/js/custom.js HTTP/1.1" 200 -
+2025-07-04 11:33:13,084 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:33:13] "GET /static/css/custom.css HTTP/1.1" 200 -
+2025-07-04 11:33:19,916 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:33:19] "GET /register HTTP/1.1" 200 -
+2025-07-04 11:33:19,992 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:33:19] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-07-04 11:33:20,237 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:33:20] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-07-04 11:34:19,174 - app - ERROR - Exception on /register [POST]
+Traceback (most recent call last):
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\MedTrack-Tarun\MedTrack-Tarun\MedTrack-Tarun\app.py", line 153, in register
+    existing_user = user_table.get_item(Key={'email': email}).get('Item')
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\client.py", line 595, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\client.py", line 1040, in _make_api_call
+    http, parsed_response = self._make_request(
+                            ~~~~~~~~~~~~~~~~~~^
+        operation_model, request_dict, request_context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\client.py", line 1064, in _make_request
+    return self._endpoint.make_request(operation_model, request_dict)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\endpoint.py", line 119, in make_request
+    return self._send_request(request_dict, operation_model)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\endpoint.py", line 196, in _send_request
+    request = self.create_request(request_dict, operation_model)
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\endpoint.py", line 132, in create_request
+    self._event_emitter.emit(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        event_name,
+        ^^^^^^^^^^^
+        request=request,
+        ^^^^^^^^^^^^^^^^
+        operation_name=operation_model.name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\hooks.py", line 412, in emit
+    return self._emitter.emit(aliased_event_name, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\hooks.py", line 256, in emit
+    return self._emit(event_name, kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\hooks.py", line 239, in _emit
+    response = handler(**kwargs)
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\signers.py", line 107, in handler
+    return self.sign(operation_name, request)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\signers.py", line 199, in sign
+    auth.add_auth(request)
+    ~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\chinn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\botocore\auth.py", line 421, in add_auth
+    raise NoCredentialsError()
+botocore.exceptions.NoCredentialsError: Unable to locate credentials
+2025-07-04 11:34:19,204 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:34:19] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2025-07-04 11:34:19,255 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:34:19] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-07-04 11:34:19,670 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:34:19] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-07-04 11:34:29,635 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:34:29] "GET / HTTP/1.1" 200 -
+2025-07-04 11:34:30,088 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:34:30] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-07-04 11:34:30,554 - werkzeug - INFO - 127.0.0.1 - - [04/Jul/2025 11:34:30] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
