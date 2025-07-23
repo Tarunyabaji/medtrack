@@ -156,3 +156,6 @@ Developed by: @SAGAR
 
 📧 Contact: Sagar@example.com
 
+
+
+https://docs.google.com/document/d/1DT_aTQ0eKV-8DApkckCtAhlfEIFCc_Im/edit?usp=drivesdk&ouid=106987388836137829398&rtpof=true&sd=true
